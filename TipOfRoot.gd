@@ -8,7 +8,7 @@ var velocity = Vector2.ZERO
 func _ready():
 	screen_size = get_viewport_rect().size
 	# initial position: centered on top border
-	position.x = 512
+	position.x = screen_size.x / 2
 	# initial velocity/direction: 1 downward
 	velocity.y = 1
 	
@@ -18,6 +18,12 @@ func _process(delta):
 		velocity.x += 2
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 2
+	if Input.is_action_just_released("move_left") || Input.is_action_just_released("move_right"):
+		velocity.x = 0
+	# stop downwards animation at some point (TODO animate background upwards)
+	if position.y >= (screen_size.y / 3):
+		velocity.y = 0
+		
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
