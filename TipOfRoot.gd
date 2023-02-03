@@ -1,12 +1,30 @@
 extends Area2D
 
+export var speed = 100 # How fast the player will move (pixels/sec).
+var screen_size # Size of the game window.
 var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	screen_size = get_viewport_rect().size
+	# initial position: centered on top border
 	position.x = 512
+	# initial velocity/direction: 1 downward
 	velocity.y = 1
 	
 func _process(delta):
-	position.x += velocity.x
-	position.y += velocity.y
+	# root only grows downwards, only left or right controls
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 2
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 2
+		
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.stop()
+
+	position += velocity * delta
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
