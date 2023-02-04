@@ -36,11 +36,5 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 	
 
-
-func _on_TipOfRoot_area_entered(area):
-	print('test')
-	pass # Replace with function body.
-
-
 func _on_TipOfRoot_body_entered(body):
-	print('yeah') # Replace with function body.
+	get_tree().change_scene("res://scenes/menue.tscn")
