@@ -24,7 +24,7 @@ func _process(delta):
 		velocity.x = 0
 		rotation_degrees = 0
 	# stop downwards animation at some point (TODO animate background upwards)
-	if position.y >= (screen_size.y / 3):
+	if position.y >= (screen_size.y / 4):
 		velocity.y = 0
 		
 		
@@ -34,3 +34,13 @@ func _process(delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+	
+
+
+func _on_TipOfRoot_area_entered(area):
+	print('test')
+	pass # Replace with function body.
+
+
+func _on_TipOfRoot_body_entered(body):
+	print('yeah') # Replace with function body.
