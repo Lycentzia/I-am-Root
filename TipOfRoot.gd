@@ -16,10 +16,13 @@ func _process(delta):
 	# root only grows downwards, only left or right controls
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 2
+		rotation_degrees = -45
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 2
+		rotation_degrees = 45
 	if Input.is_action_just_released("move_left") || Input.is_action_just_released("move_right"):
 		velocity.x = 0
+		rotation_degrees = 0
 	# stop downwards animation at some point (TODO animate background upwards)
 	if position.y >= (screen_size.y / 3):
 		velocity.y = 0
