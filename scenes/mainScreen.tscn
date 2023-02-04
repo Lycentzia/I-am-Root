@@ -16,7 +16,7 @@ z_index = 99
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="ObjectPool" type="Node2D" parent="."]
-position = Vector2( 163, 118 )
+position = Vector2( 10, 12 )
 script = ExtResource( 3 )
 g_path = "res://scenes/obstacle/"
 
