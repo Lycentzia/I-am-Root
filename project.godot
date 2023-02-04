@@ -11,12 +11,16 @@ config_version=4
 [application]
 
 config/name="I-am-root"
-run/main_scene="res://scenes/mainScreen.tscn"
+run/main_scene="res://scenes/menue.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/resizable=false
+
+[global]
+
+scen=false
 
 [gui]
 
