@@ -14,13 +14,13 @@ func _ready():
 	
 func _process(delta):
 	# root only grows downwards, only left or right controls
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right") || Input.is_action_pressed("ui_right"):
 		velocity.x += 4
 		rotation_degrees = -90
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") || Input.is_action_pressed("ui_left"):
 		velocity.x -= 4
 		rotation_degrees = 45
-	if Input.is_action_just_released("move_left") || Input.is_action_just_released("move_right"):
+	if Input.is_action_just_released("move_left") || Input.is_action_just_released("move_right") || Input.is_action_just_released("ui_left") || Input.is_action_just_released("ui_right"):
 		velocity.x = 0
 		rotation_degrees = 0
 	# stop downwards animation at some point (TODO animate background upwards)

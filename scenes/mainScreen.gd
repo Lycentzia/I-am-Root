@@ -12,10 +12,10 @@ func _on_RootBodyTimer_timeout():
 	bodyPart.position = tipPosition + Vector2(0,-48)
 
 	# adjust spawn position while left/right movement
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right") || Input.is_action_pressed("ui_right"):
 		bodyPart.rotation_degrees = -45
 		bodyPart.position += Vector2(-24,24)
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") || Input.is_action_pressed("ui_left"):
 		bodyPart.rotation_degrees = 45
 		bodyPart.position += Vector2(24,24)
 	# XXX linear_velocity does not work properly,
