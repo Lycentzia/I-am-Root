@@ -9,7 +9,7 @@ func _on_RootBodyTimer_timeout():
 	var tipPosition = get_node("TipOfRoot").position
 	
 	var bodyPart = root_body_scene.instance()
-	bodyPart.position = tipPosition + Vector2(0,-62)
+	bodyPart.position = tipPosition + Vector2(0,-48)
 
 	# adjust spawn position while left/right movement
 	if Input.is_action_pressed("move_right"):
@@ -20,6 +20,6 @@ func _on_RootBodyTimer_timeout():
 		bodyPart.position += Vector2(24,24)
 	# XXX linear_velocity does not work properly,
 	# animation is created with negative gravity on the body parts
-	bodyPart.linear_velocity = Vector2(0.0,-1.0)
+	bodyPart.linear_velocity = Vector2(0.0,-100.0)
 	
 	add_child(bodyPart)
