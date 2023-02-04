@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://TipOfRoot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RootBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mainScreen.gd" type="Script" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+root_body_scene = ExtResource( 3 )
 
 [node name="TipOfRoot" parent="." instance=ExtResource( 1 )]
+z_index = 99
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="RootBodyTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="RootBodyTimer" to="." method="_on_RootBodyTimer_timeout"]
