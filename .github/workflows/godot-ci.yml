@@ -2,6 +2,10 @@
 name: "godot-ci export"
 on: push
 
+# https://github.com/JamesIves/github-pages-deploy-action/issues/1285#issuecomment-1383004519
+permissions:
+  contents: write
+
 env:
   GODOT_VERSION: 3.5.1
   EXPORT_NAME: I-am-root
