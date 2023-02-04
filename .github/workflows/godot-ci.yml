@@ -5,7 +5,7 @@ on: push
 env:
   GODOT_VERSION: 3.5.1
   EXPORT_NAME: I-am-root
-  PROJECT_PATH: I-am-root
+  PROJECT_PATH: .
   
 jobs:
   # export-windows:
