@@ -3,7 +3,7 @@ extends Node
 ### Export variables
 export var g_copies_of_each: int = 3
 export var g_min_x: int = 100
-export var g_max_x: int = 500
+export var g_max_x: int = 700
 export var g_min_spawn_wait_ms: int = 1000
 export var g_max_spawn_wait_ms: int = 2000
 export var g_object_velocity: float = 5

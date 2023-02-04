@@ -14,6 +14,10 @@ config/name="I-am-root"
 run/main_scene="res://scenes/menue.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Highscore="*res://highscore.gd"
+
 [display]
 
 window/size/width=600
