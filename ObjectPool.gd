@@ -3,19 +3,23 @@ extends Node2D
 ### Export variables
 export var g_copies_of_each: int = 2
 export var g_path: String = ""
+var screen_size = get_viewport_rect().size
+export var g_min_y: int = 0
+export var g_max_y: int = 600
+export var g_starting_x: int = screen_size.x
 
 var g_object_pool: Array = []
 var g_object_pool_available: Array = []
 
 func _ready():
 	var paths: Array = _get_full_paths(g_path)
-	print(paths)
+	print('paths')
 	for path in paths:
 		var resource = load(path)
 		for _i in g_copies_of_each:
 			var object: Node2D = resource.instance()
-#			object.global_position = _get_random_global_position(object)
-			object.global_position = Vector2(0,0)
+			object.global_position = _get_random_global_position(object)
+#			object.global_position = Vector2(500,0)
 			g_object_pool.append(object)
 			g_object_pool_available.append(object)
 			get_parent().call_deferred('add_child_below_node', self, object)
@@ -38,6 +42,13 @@ func _get_full_paths(path: String) -> Array:
 	for file in files:
 		paths.append(path + file)
 	return paths
+
+# Returns a random (within certain boundaries) global position to spawn the
+# passed-in object at.
+func _get_random_global_position(object: Node2D) -> Vector2:
+	var texture_height: float = object.get_height()
+	var starting_y: float = rand_range(g_min_y, g_max_y) - (texture_height / 2)
+	return Vector2(g_starting_x, starting_y)
 
 # Given a path to a directory, returns the names of all
 # files in that directory.
