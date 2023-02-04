@@ -26,10 +26,10 @@ wait_time = 0.25
 autostart = true
 
 [node name="Depp_Label" type="Label" parent="."]
-margin_left = 862.0
-margin_top = 42.0
-margin_right = 983.0
-margin_bottom = 68.0
+margin_left = 460.0
+margin_top = 19.0
+margin_right = 581.0
+margin_bottom = 45.0
 script = ExtResource( 6 )
 
 [connection signal="timeout" from="RootBodyTimer" to="." method="_on_RootBodyTimer_timeout"]

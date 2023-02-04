@@ -1,6 +1,6 @@
 extends Area2D
 
-export var speed = 100 # How fast the player will move (pixels/sec).
+export var speed = 150 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var velocity = Vector2.ZERO
 
@@ -15,10 +15,10 @@ func _ready():
 func _process(delta):
 	# root only grows downwards, only left or right controls
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 2
-		rotation_degrees = -45
+		velocity.x += 4
+		rotation_degrees = -90
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 2
+		velocity.x -= 4
 		rotation_degrees = 45
 	if Input.is_action_just_released("move_left") || Input.is_action_just_released("move_right"):
 		velocity.x = 0
