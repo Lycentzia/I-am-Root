@@ -1,11 +1,11 @@
 extends Node
 
 ### Export variables
-export var g_copies_of_each: int = 3
+export var g_copies_of_each: int = 100
 export var g_min_x: int = 100
 export var g_max_x: int = 700
-export var g_min_spawn_wait_ms: int = 1000
-export var g_max_spawn_wait_ms: int = 2000
+export var g_min_spawn_wait_ms: int = 500
+export var g_max_spawn_wait_ms: int = 900
 export var g_object_velocity: float = 5
 export var g_path: String = ""
 export var g_starting_y: int = 1200
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	if time_diff > g_rand_spawn_wait_ms:
 		var available_object = _find_and_remove_available_object()
 		if available_object:
-			var scaleFactor = rand_range(0.5,2)
+			var scaleFactor = rand_range(0.5,1.5)
 			var rotationFactor = rand_range(0,360)
 			available_object.scale = Vector2(scaleFactor,scaleFactor)
 			available_object.rotation_degrees = rotationFactor
