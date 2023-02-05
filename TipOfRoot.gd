@@ -24,7 +24,7 @@ func _process(delta):
 	# root only grows downwards, only left or right controls
 	if Input.is_action_pressed("move_right") || Input.is_action_pressed("ui_right"):
 		velocity.x += 4
-		rotation_degrees = -90
+		rotation_degrees = -45
 	if Input.is_action_pressed("move_left") || Input.is_action_pressed("ui_left"):
 		velocity.x -= 4
 		rotation_degrees = 45
