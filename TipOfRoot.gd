@@ -11,6 +11,7 @@ func _ready():
 	position.x = screen_size.x / 2
 	# initial velocity/direction: 1 downward
 	velocity.y = 1
+	$Music.play()
 	
 func _process(delta):
 	# root only grows downwards, only left or right controls
@@ -37,4 +38,5 @@ func _process(delta):
 	
 
 func _on_TipOfRoot_body_entered(body):
+	$Music.stop()
 	get_tree().change_scene("res://scenes/menue.tscn")
