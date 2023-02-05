@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Stone.gd" type="Script" id=1]
+[ext_resource path="res://assets/obstacle/cheese.png" type="Texture" id=2]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+polygon = PoolVector2Array( -9.5, -30.6, -9.5, -26.8, -5.7, -23, 0.200001, -23, 9.5, -27, 9.5, -24.5, 29.8, -18, 38.6, -18, 48.5, -16.8, 48.5, -8.5, 46.3, -4, 52.5, 2.2, 52.5, 6.7, 57.3, 21, 35.8, 21, 8.8, 30, 2.9, 30, -16.3, 34, -41.5, 34, -41.5, 25.8, -47.5, 22.1, -47.5, 19.5, -56.5, 3.5, -56.5, -7, -54.2, -7, -26.5, -31.9, -26.5, -34.5 )

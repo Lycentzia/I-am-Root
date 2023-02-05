@@ -1,9 +1,9 @@
 extends Node
 
 ### Export variables
-export var g_copies_of_each: int = 100
+export var g_copies_of_each: int = 50
 export var g_min_x: int = 100
-export var g_max_x: int = 700
+export var g_max_x: int = 650
 export var g_min_spawn_wait_ms: int = 500
 export var g_max_spawn_wait_ms: int = 900
 export var g_object_velocity: float = 5
