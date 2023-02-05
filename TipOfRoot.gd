@@ -3,6 +3,9 @@ extends Area2D
 export var speed = 150 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var velocity = Vector2.ZERO
+var music_speed_base = 0.75
+var music_speed_increment_by = 0.05
+var music_speed_increment_every = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,9 +14,13 @@ func _ready():
 	position.x = screen_size.x / 2
 	# initial velocity/direction: 1 downward
 	velocity.y = 1
+	$Music.set_pitch_scale(music_speed_base)
 	$Music.play()
 	
 func _process(delta):
+	# increase music speed as the game progresses
+	$Music.set_pitch_scale(music_speed_base + (int(Highscore.time_elapsed) / music_speed_increment_every) * music_speed_increment_by)
+	
 	# root only grows downwards, only left or right controls
 	if Input.is_action_pressed("move_right") || Input.is_action_pressed("ui_right"):
 		velocity.x += 4
