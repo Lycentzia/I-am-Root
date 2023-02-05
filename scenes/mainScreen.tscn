@@ -51,4 +51,7 @@ script = ExtResource( 6 )
 wait_time = 0.25
 autostart = true
 
+[node name="IncreaseVelocityTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="UI/RootBodyTimer" to="." method="_on_RootBodyTimer_timeout"]
+[connection signal="timeout" from="IncreaseVelocityTimer" to="ObjectPool" method="_on_IncreaseVelocityTimer_timeout"]

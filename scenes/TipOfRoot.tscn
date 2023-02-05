@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/player/TipOfRoot1.png" type="Texture" id=1]
 [ext_resource path="res://TipOfRoot.gd" type="Script" id=2]
 [ext_resource path="res://assets/player/TipOfRoot2.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/mushroom dance_0.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,6 +34,9 @@ self_modulate = Color( 0.67451, 0.529412, 0.529412, 1 )
 light_mask = 13
 position = Vector2( -0.5, -0.5 )
 shape = SubResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="." to="." method="_on_TipOfRoot_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_TipOfRoot_body_entered"]
