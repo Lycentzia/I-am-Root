@@ -16,6 +16,7 @@ var g_max_available_objects: int = 0
 var g_object_pool: Array = []
 var g_object_pool_available: Array = []
 var g_rand_spawn_wait_ms: int = 0
+var g_velocity_resize: float =  g_object_velocity * 0.25
 
 ### Constants
 const TOP_BOUND: int = 0
@@ -112,3 +113,7 @@ func _list_files_in_directory(path: String) -> Array:
 	dir.list_dir_end()
 	
 	return files
+
+func _on_IncreaseVelocityTimer_timeout():
+	g_object_velocity += g_velocity_resize
+
