@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/TipOfRoot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://scenes/RootBody.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Depp_Label.gd" type="Script" id=6]
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/BlackAndWhitePicture-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 8 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
@@ -22,17 +27,6 @@ position = Vector2( 10, 12 )
 script = ExtResource( 3 )
 g_path = "res://scenes/obstacle/"
 
-[node name="RootBodyTimer" type="Timer" parent="."]
-wait_time = 0.25
-autostart = true
-
-[node name="Depp_Label" type="Label" parent="."]
-margin_left = 460.0
-margin_top = 19.0
-margin_right = 581.0
-margin_bottom = 45.0
-script = ExtResource( 6 )
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Virtual joystick2" parent="UI" instance=ExtResource( 7 )]
@@ -45,4 +39,16 @@ margin_bottom = 0.0
 joystick_mode = 1
 visibility_mode = 1
 
-[connection signal="timeout" from="RootBodyTimer" to="." method="_on_RootBodyTimer_timeout"]
+[node name="Depp_Label" type="Label" parent="UI"]
+margin_left = 460.0
+margin_top = 19.0
+margin_right = 581.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="RootBodyTimer" type="Timer" parent="UI"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="UI/RootBodyTimer" to="." method="_on_RootBodyTimer_timeout"]

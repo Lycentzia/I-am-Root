@@ -10,6 +10,3 @@ func _on_Start_Button_pressed():
 	get_tree().change_scene("res://scenes/mainScreen.tscn")
 	Highscore.reset()
 
-
-func _on_Exit_Button_pressed():
-	get_tree().quit()
